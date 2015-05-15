@@ -1,11 +1,10 @@
-% title: Title of my presentation
-% subtitle: And a subtitle
-% author: Firstname Lastname
-% author: Other info to put on the author line
+% title: Linear optimization with `cvxopt`
+% author: Miles Gould
+% author: Hogarth Worldwide
 % thankyou: Thanks everyone!
 % thankyou_details: And especially these people:
-% contact: <span>www</span> <a href="http://www.google.edu/">website</a>
-% contact: <span>github</span> <a href="http://github.com">username</a>
+% contact: <span>www</span> <a href="http://pozorvlak.dreamwidth.org/">website</a>
+% contact: <span>github</span> <a href="http://github.com/pozorvlak">pozorvlak</a>
 % favicon: http://www.stanford.edu/favicon.ico
 
 ---
