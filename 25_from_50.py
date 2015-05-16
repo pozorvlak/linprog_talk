@@ -1,18 +1,25 @@
 from pulp import *
+from sys import argv
 
-prob = LpProblem("25 from 50", LpMinimize)
+""" Pick k numbers from {1,...,n} such that none divides another. """
 
-variables = [LpVariable(i, 0, 1, LpInteger) for i in range(1, 51)]
+k = int(sys.argv[1])
+n = int(sys.argv[2])
+prob = LpProblem("{} from {}".format(k, n), LpMinimize)
 
-prob += sum([(i+1) * variables[i] for i in range(0, 50)])
-prob += lpSum([variables]) == 25, "pick 25 numbers"
+variables = [LpVariable("i{}".format(i), 0, 1, LpInteger)
+             for i in range(1, n + 1)]
 
-for i in range(0, 50):
-    for j in range(2 * i + 1, 50, i + 1):
+prob += sum([(i+1) * variables[i] for i in range(0, n)])
+prob += lpSum([variables]) == k, "pick {} numbers".format(k)
+
+for i in range(0, n):
+    for j in range(2 * i + 1, n, i + 1):
         prob += variables[i] + variables[j] <= 1, \
             "{} divides {}".format(i+1, j+1)
 
-prob.writeLP("25_from_50.lp")
+prob.writeLP("{}_from_{}.lp".format(k, n))
+prob.writeMPS("{}_from_{}.mps".format(k, n))
 prob.solve()
 
 print("Status:", LpStatus[prob.status])
