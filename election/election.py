@@ -15,6 +15,7 @@ with open('election.csv', 'r') as csvfile:
         total_votes += score
 
 expected = {party: 650*score/total_votes for party, score in votes.items()}
+parties = sorted(expected.keys(), key=lambda x: -expected[x])
 
 prob = LpProblem("UK general election 2015", LpMinimize)
 
@@ -22,7 +23,7 @@ prob = LpProblem("UK general election 2015", LpMinimize)
 # http://lpsolve.sourceforge.net/5.5/absolute.htm
 bounds = []
 seat_vars = {}
-for party in votes:
+for party in parties:
     seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
     bound = LpVariable("{}_bound".format(party), 0, 650)
     diff = seats - expected[party]
@@ -37,11 +38,11 @@ prob += lpSum(bounds)
 prob.solve()
 
 print("Status:", LpStatus[prob.status])
-results = [(party, v.varValue) for party, v in seat_vars.items()]
-results.sort(key=lambda x:-x[1])
-for result in results:
-    party = result[0]
+total_seats = 0
+for party in parties:
+    seats = int(seat_vars[party].varValue)
+    total_seats += seats
     print("{:.2f}\t{}\t{}\t{}".format(
-        expected[party], int(result[1]), actual_seats[party], party))
+        expected[party], seats, actual_seats[party], party))
 print("Error = ", value(prob.objective))
-print("Total seats = ", sum([r[1] for r in results]))
+print("Total seats = ", total_seats)
