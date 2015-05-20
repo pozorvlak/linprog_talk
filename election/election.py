@@ -44,3 +44,4 @@ for result in results:
     print("{:.2f}\t{}\t{}\t{}".format(
         expected[party], int(result[1]), actual_seats[party], party))
 print("Error = ", value(prob.objective))
+print("Total seats = ", sum([r[1] for r in results]))
