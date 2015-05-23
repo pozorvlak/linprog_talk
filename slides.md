@@ -9,16 +9,52 @@
 % favicon: http://www.stanford.edu/favicon.ico
 
 ---
-title: Intro slide
+title: Objectives
 build_lists: true
 
 Here is a list that should build:
 
-- I like formulas, like this one $e=mc^2$
-- It's rendered using MathJax. You can change the settings by editing base.html if you like
-- pressing 'f' toggle fullscreen
-- pressing 'w' toggles widescreen
-- 'o' toggles overview mode
+- What is linear programming?
+- When is it useful?
+- How can I use it?
+- How does it work?
+- How efficient is it?
+
+---
+title: Optimization
+
+"Find the values of a, b, c... such that f(a, b, c, ...) is as big as possible, subject to constraints on a, b, c..."
+
+---
+title: Huh?
+build_lists: true
+
+- Let's try an example!
+
+---
+title: Optimal farming
+
+- I have 100ha of fields and 400 bags of fertilizer
+- I can plant rice or barley
+- 1ha of barley sells for €300, uses 5 bags
+- 1ha of rice sells for €250, uses 3 bags
+- how can I maximize my profit?
+
+---
+Or in other words...
+
+> “Mathematicians are like Frenchmen: whatever you say to them they translate into their own language and forthwith it is something entirely different.”
+
+> ― Johann Wolfgang von Goethe
+
+---
+title: Optimal farming
+subtitle: Now with ADDED MATHS!
+
+- Maximize `300 * barley + 250 * rice`
+- `barley + rice <= 100`
+- `5 * barley + 3 * rice <= 400`
+- This is **linear**
 
 ---
 title: Slide with a figure
