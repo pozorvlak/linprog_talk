@@ -1,4 +1,5 @@
-% title: Linear optimization with `cvxopt`
+% title: Linear optimization in Python
+% subtitle: or, search absurdly large spaces using this one weird trick
 % author: Miles Gould
 % author: Hogarth Worldwide
 % thankyou: Thanks everyone!
