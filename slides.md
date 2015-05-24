@@ -164,6 +164,20 @@ for party in parties:
 </pre>
 
 ---
+title: Chip layouts
+
+XXX picture goes here
+
+---
+title: Boolean formulae
+build_lists: true
+
+- Take a long boolean formula, eg <pre>a && (b || (c && d)) && (e && f)</pre>
+- Can we find <pre>a, b, c, d, e, f</pre> to make it true?
+- one integer variable per input (0 = false, 1 = true)
+- XXX look up how this actually works!
+
+---
 title: Slide with a figure
 subtitle: Subtitles are cool too
 class: img-top-center
