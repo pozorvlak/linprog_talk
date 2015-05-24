@@ -25,7 +25,7 @@ bounds = []
 seat_vars = {}
 for party in parties:
     seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
-    bound = LpVariable("{}_bound".format(party), 0, 650)
+    bound = LpVariable("{}_bound".format(party), 0, 1)
     diff = seats - expected[party]
     prob += diff <= bound
     prob += -diff <= bound
