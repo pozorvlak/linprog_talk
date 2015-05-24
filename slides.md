@@ -12,8 +12,6 @@
 title: Objectives
 build_lists: true
 
-Here is a list that should build:
-
 - What is linear programming?
 - When is it useful?
 - How can I use it?
