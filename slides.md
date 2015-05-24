@@ -41,7 +41,7 @@ title: Optimal farming
 - how can I maximize my profit?
 
 ---
-Or in other words...
+title: Optimal farming
 
 > “Mathematicians are like Frenchmen: whatever you say to them they translate into their own language and forthwith it is something entirely different.”
 
@@ -55,6 +55,54 @@ subtitle: Now with ADDED MATHS!
 - `barley + rice <= 100`
 - `5 * barley + 3 * rice <= 400`
 - This is **linear**
+
+---
+title: Let's write some code!
+
+<pre class="prettyprint" data-lang="python">
+from pulp import *
+<pre>
+
+---
+title: Let's write some code!
+
+<pre class="prettyprint" data-lang="python">
+from pulp import *
+
+<b>prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)</b>
+<pre>
+
+---
+title: Let's write some code!
+
+<pre class="prettyprint" data-lang="python">
+from pulp import *
+
+prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)
+
+<b>prob += 300 * barley + 250 * rice, "money for selling grain"
+prob += barley + rice &lt;= 100, "total size of fields"
+prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"</b>
+</pre>
+
+---
+title: Let's write some code!
+
+<pre class="prettyprint" data-lang="python">
+prob.writeMPS("farmer.mps")
+prob.solve()
+
+print("Status:", LpStatus[prob.status])
+for v in prob.variables():
+    print(v.name, "=", v.varValue)
+print("Total income = ", value(prob.objective))
+</pre>
 
 ---
 title: Slide with a figure
