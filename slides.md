@@ -129,6 +129,43 @@ build_lists: true
 - Fitting curves to data (XXX)
 
 ---
+title: Interlude
+
+How does it work?
+
+XXX diagram here
+
+---
+title: Integer variables
+build_lists: true
+
+- We just had an election
+- [Let's pretend we have PR...]
+- CON expect 239.38 seats
+- er...
+- Can we use LPs?
+
+---
+title: LPs to the rescue!
+
+<pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, <b>LpInteger</b>)
+<pre>
+
+---
+title: Handling absolute values
+
+<pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
+    <b>bound = LpVariable("{}_bound".format(party), 0, 650)</b>
+    diff = seats - expected[party]
+    <b>prob += diff <= bound
+    prob += -diff <= bound</b>
+</pre>
+
+---
 title: Slide with a figure
 subtitle: Subtitles are cool too
 class: img-top-center
