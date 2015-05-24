@@ -72,7 +72,7 @@ title: Let's write some code!
 
 <pre class="prettyprint" data-lang="python">
 from pulp import *
-<pre>
+</pre>
 
 ---
 title: Let's write some code!
@@ -84,7 +84,7 @@ from pulp import *
 
 barley = LpVariable("barley", 0, None)
 rice = LpVariable("rice", 0, None)</b>
-<pre>
+</pre>
 
 ---
 title: Let's write some code!
@@ -167,7 +167,7 @@ subtitle: LPs to the rescue!
 <pre class="prettyprint" data-lang="python">
 for party in parties:
     seats = LpVariable("{}_seats".format(party), 0, 650, <b>LpInteger</b>)
-<pre>
+</pre>
 
 ---
 title: Election fever
@@ -254,7 +254,7 @@ KeyboardInterrupt
 real    8188m52.074s
 user    8023m13.082s
 sys     0m15.560s
-<pre>
+</pre>
 
 ---
 title: Slide with a figure
