@@ -195,6 +195,20 @@ build_lists: true
 - XXX look up how this actually works!
 
 ---
+title: NP-completeness
+subtitle: I used to be like
+class: img-top-center
+
+<img height=150 src=figures/game_over_man.png />
+
+---
+title: NP-completeness
+subtitle: But now I'm like
+class: img-top-center
+
+<img height=150 src=figures/morpheus.gif />
+
+---
 title: Slide with a figure
 subtitle: Subtitles are cool too
 class: img-top-center
