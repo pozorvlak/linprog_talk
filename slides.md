@@ -144,7 +144,8 @@ build_lists: true
 - Can we use LPs?
 
 ---
-title: LPs to the rescue!
+title: Election fever
+subtitle: LPs to the rescue!
 
 <pre class="prettyprint" data-lang="python">
 for party in parties:
@@ -152,7 +153,8 @@ for party in parties:
 <pre>
 
 ---
-title: Handling absolute values
+title: Election fever
+subtitle: Handling absolute values
 
 <pre class="prettyprint" data-lang="python">
 for party in parties:
