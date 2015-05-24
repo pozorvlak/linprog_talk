@@ -138,13 +138,20 @@ build_lists: true
 
 ---
 title: Interlude
+subtitle: How does it work?
+class: segue dark nobackground
 
-How does it work?
+---
+title: The simplex algorithm
 
 XXX diagram here
 
 ---
-title: Integer variables
+title: Integer linear programming
+class: segue dark nobackground
+
+---
+title: Election fever
 build_lists: true
 
 - We just had an election
