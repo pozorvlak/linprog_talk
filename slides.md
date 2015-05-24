@@ -222,6 +222,30 @@ class: img-top-center
 <img height=150 src=figures/morpheus.gif />
 
 ---
+title: A performance investigation
+
+---
+title: Here's one I prepared earlier
+
+<pre class="prettyprint" data-lang="shell">
+(linprog_pypy3)miles@ended:~/src/linprog_talk/k_from_n 22:53  master 
+0 $ time ./recursive.py 100 200
+^CTraceback (most recent call last):
+  File "./recursive.py", line 16, in <module>
+    answer = best(int(sys.argv[1]), range(1, int(sys.argv[2]) + 1))
+  File "./recursive.py", line 14, in best
+    return best(k, tail)
+<i>Many lines of stack trace...</i>
+  File "./recursive.py", line 11, in <listcomp>
+    with_head = best(k - 1, [o for o in tail if o % head != 0])
+KeyboardInterrupt
+
+real    8188m52.074s
+user    8023m13.082s
+sys     0m15.560s
+<pre>
+
+---
 title: Slide with a figure
 subtitle: Subtitles are cool too
 class: img-top-center
