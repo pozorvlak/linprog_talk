@@ -63,10 +63,11 @@ build_lists: true
 - Given variables $X_0, X_1, \ldots, X_n$
 - Minimize (or maximize!) $c_0 X_0 + c_1 X_1 + \ldots + c_n X_n$
 - Subject to constraints
+XXX fix layout
 $$
-a_00 X_0 + \ldots + \a_0n X_n <= b_0
-\vdots
-a_m0 X_0 + \ldots + \a_mn X_n <= b_m
+a_{00} X_0 + \ldots + a_{0n} X_n <= b_0 \\
+\vdots \\
+a_{m0} X_0 + \ldots + a_{mn} X_n <= b_m \\
 $$
 
 ---
