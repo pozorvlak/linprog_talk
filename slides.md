@@ -224,6 +224,11 @@ class: img-top-center
 ---
 title: A performance investigation
 
+Find $k$ numbers from $1, \ldots, n$ such that
+
+ - none divides any other
+ - their sum is as small as possible
+
 ---
 title: Here's one I prepared earlier
 
