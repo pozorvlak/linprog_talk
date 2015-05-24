@@ -164,6 +164,23 @@ for party in parties:
 </pre>
 
 ---
+title: Election fever
+
+<pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
+    bound = LpVariable("{}_bound".format(party), 0, 650)
+    diff = seats - expected[party]
+    prob += diff <= bound
+    prob += -diff <= bound
+    bounds.append(bound)
+    seat_vars[party] = seats
+
+<b>prob += lpSum(seat_vars.values()) == 650
+prob += lpSum(bounds)</b>
+</pre>
+
+---
 title: Chip layouts
 
 XXX picture goes here
