@@ -118,6 +118,17 @@ print("Total income = ", value(prob.objective))
 </pre>
 
 ---
+title: Live demo!
+
+---
+title: More examples!
+build_lists: true
+
+- Transport problem
+- Diet problem
+- Fitting curves to data (XXX)
+
+---
 title: Slide with a figure
 subtitle: Subtitles are cool too
 class: img-top-center
