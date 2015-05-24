@@ -109,7 +109,6 @@ prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"</b>
 title: Let's write some code!
 
 <pre class="prettyprint" data-lang="python">
-prob.writeMPS("farmer.mps")
 prob.solve()
 
 print("Status:", LpStatus[prob.status])
