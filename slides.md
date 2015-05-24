@@ -107,7 +107,18 @@ prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"</b>
 title: Let's write some code!
 
 <pre class="prettyprint" data-lang="python">
-prob.solve()
+from pulp import *
+
+prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)
+
+prob += 300 * barley + 250 * rice, "money for selling grain"
+prob += barley + rice &lt;= 100, "total size of fields"
+prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"
+
+<b>prob.solve()</b>
 
 print("Status:", LpStatus[prob.status])
 for v in prob.variables():
