@@ -133,7 +133,7 @@ title: More examples!
 build_lists: true
 
 - Transport problem
-- Diet problem
+- [Diet problem](https://developers.google.com/optimization/lp/glop)
 - Fitting curves to data (XXX)
 
 ---
