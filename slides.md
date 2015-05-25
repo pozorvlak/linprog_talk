@@ -200,6 +200,10 @@ prob += lpSum(bounds)</b>
 </pre>
 
 ---
+title: Election fever
+subtitle: Live demo!
+
+---
 title: Chip layouts
 
 XXX picture goes here
