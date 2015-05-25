@@ -233,6 +233,11 @@ f >= 1$$
  - Any objective we like
 
 ---
+title: Oh dear
+
+We've just sketched out a SAT solver.
+
+---
 title: NP-completeness
 subtitle: I used to be like
 class: img-top-center
@@ -245,6 +250,13 @@ subtitle: But now I'm like
 class: img-top-center
 
 <img src=figures/morpheus.gif />
+
+---
+title: NP-completeness
+subtitle: Because I learned this
+class: img-top-center
+
+<img src=figures/compilers.png />
 
 ---
 title: A performance investigation
