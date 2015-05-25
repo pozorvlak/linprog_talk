@@ -212,10 +212,25 @@ XXX picture goes here
 title: Boolean formulae
 build_lists: true
 
-- Take a long boolean formula, eg <pre>a && (b || (c && d)) && (e && f)</pre>
-- Can we find <pre>a, b, c, d, e, f</pre> to make it true?
-- one integer variable per input (0 = false, 1 = true)
-- XXX look up how this actually works!
+- Take a long boolean formula, say
+<pre>a and (b or (c and d)) and (e and f)</pre>
+- Can we find `a, b, c, d, e, f` to make it true?
+- First, convert to conjunctive normal form:
+<pre>a and (b or c) and (b or d) and e and f</pre>
+
+---
+title: Boolean formulae
+
+<pre>a and (b or c) and (b or d) and e and f</pre>
+- One integer variable per input (0 = false, 1 = true)
+- One constraint per disjunction:
+$$
+a >= 1 \\
+b + c >= 1 \\
+b + d >= 1 \\
+e >= 1 \\
+f >= 1$$
+ - Any objective we like
 
 ---
 title: NP-completeness
