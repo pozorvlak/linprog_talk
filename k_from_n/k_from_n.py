@@ -18,8 +18,6 @@ for i in range(0, n):
         prob += variables[i] + variables[j] <= 1, \
             "{} divides {}".format(i+1, j+1)
 
-prob.writeLP("{}_from_{}.lp".format(k, n))
-prob.writeMPS("{}_from_{}.mps".format(k, n))
 prob.solve()
 
 print("Status:", LpStatus[prob.status])
