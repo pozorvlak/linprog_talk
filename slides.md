@@ -176,7 +176,7 @@ subtitle: Handling absolute values
 <pre class="prettyprint" data-lang="python">
 for party in parties:
     seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
-    <b>bound = LpVariable("{}_bound".format(party), 0, 650)</b>
+    <b>bound = LpVariable("{}_bound".format(party), 0, 1)</b>
     diff = seats - expected[party]
     <b>prob += diff <= bound
     prob += -diff <= bound</b>
@@ -188,7 +188,7 @@ title: Election fever
 <pre class="prettyprint" data-lang="python">
 for party in parties:
     seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
-    bound = LpVariable("{}_bound".format(party), 0, 650)
+    bound = LpVariable("{}_bound".format(party), 0, 1)
     diff = seats - expected[party]
     prob += diff <= bound
     prob += -diff <= bound
