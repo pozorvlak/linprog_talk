@@ -133,7 +133,7 @@ build_lists: true
 
 - Transport problem
 - [Diet problem](https://developers.google.com/optimization/lp/glop)
-- Fitting curves to data (XXX)
+- Fitting curves to data
 
 ---
 title: Interlude
