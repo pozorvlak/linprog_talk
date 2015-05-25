@@ -271,13 +271,16 @@ title: Python LP libraries
 subtitle: Lower-level
 
  - [ecyglpki](https://pypi.python.org/pypi/ecyglpki/0.2.0)
- - swiglpk
- - ctypes-glpk
- - lpsolve55
+ - [swiglpk](https://pypi.python.org/pypi/swiglpk)
+ - [ctypes-glpk](https://code.google.com/p/ctypes-glpk/)
+ - [lpsolve55](http://lpsolve.sourceforge.net/5.5/Python.htm#Install_the_lpsolve_driver)
  - [pycplex](http://www.cs.toronto.edu/~darius/software/pycplex/)
+ - [cylp](https://pypi.python.org/pypi/cylp/0.7.3-)
 
 ---
 title: Nonlinear programming libraries
 
  - [cvxopt](http://cvxopt.org/)
  - [tango](https://pypi.python.org/pypi/TANGO-Project---ALGENCAN/1.0)
+ - [optlang](https://pypi.python.org/pypi/optlang/0.2.6)
+ - [PyLMI](https://pypi.python.org/pypi/PyLMI-SDP/0.2)
