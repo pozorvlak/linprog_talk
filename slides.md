@@ -3,7 +3,7 @@
 % author: Miles Gould
 % author: Hogarth Worldwide
 % thankyou: Thanks everyone!
-% contact: <span>www</span> <a href="http://pozorvlak.dreamwidth.org/">website</a>
+% contact: <span>blog</span> <a href="http://pozorvlak.dreamwidth.org/">website</a>
 % contact: <span>github</span> <a href="http://github.com/pozorvlak">pozorvlak</a>
 % favicon: http://www.stanford.edu/favicon.ico
 
