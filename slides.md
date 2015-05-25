@@ -206,7 +206,20 @@ subtitle: Live demo!
 ---
 title: Chip layouts
 
-XXX picture goes here
+<img src=figures/chip_layout.png height=500 />
+
+<footer class="source">Hiroyuki Watanabe, <i>IC Layout Generation and Compaction Using Mathematical Optimization</i></footer>
+
+---
+title: Chip layouts
+build_lists: true
+
+- Trick: introduce a **decision variable** d
+- d = 0 if separation is horizontal, 1 if vertical
+<pre class="prettyprint" data-lang="python">
+h_sep >= min_sep * (1 - d)
+v_sep >= min_sep * d
+</pre>
 
 ---
 title: Boolean formulae
