@@ -237,14 +237,14 @@ title: NP-completeness
 subtitle: I used to be like
 class: img-top-center
 
-<img height=150 src=figures/game_over_man.jpg />
+<img src=figures/game_over_man.jpg />
 
 ---
 title: NP-completeness
 subtitle: But now I'm like
 class: img-top-center
 
-<img height=150 src=figures/morpheus.gif />
+<img src=figures/morpheus.gif />
 
 ---
 title: A performance investigation
