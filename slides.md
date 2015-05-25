@@ -257,43 +257,25 @@ sys     0m15.560s
 </pre>
 
 ---
-title: Slide with a figure
-subtitle: Subtitles are cool too
-class: img-top-center
+title: Python LP libraries
+subtitle: High-level
 
-<img height=150 src=figures/200px-6n-graf.svg.png />
-
-- Some point to make about about this figure from wikipedia
-- This slide has a class that was defined in theme/css/custom.css
-
-<footer class="source"> Always cite your sources! </footer>
+ - [PuLP](http://pythonhosted.org//PuLP/)
+ - [pyglpk](http://tfinley.net/software/pyglpk/)
+ - [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoOnlineDocs.html)
 
 ---
-title: Segue slide
-subtitle: I can haz subtitlz?
-class: segue dark nobackground
+title: Python LP libraries
+subtitle: Lower-level
 
----
-title: Maybe some code?
+Code-wise
+---------
 
-press 'h' to highlight an important section (that is highlighted
-with &lt;b&gt;...&lt;/b&gt; tags)
+ - swiglpk
+ - ctypes-glpk
+ - lpsolve55
 
-<pre class="prettyprint" data-lang="javascript">
-function isSmall() {
-  return window.matchMedia("(min-device-width: ???)").matches;
-}
+Maths-wise
+----------
 
-<b>function hasTouch() {
-  return Modernizr.touch;
-}</b>
-
-function detectFormFactor() {
-  var device = DESKTOP;
-  if (hasTouch()) {
-    device = isSmall() ? PHONE : TABLET;
-  }
-  return device;
-}
-</pre>
-
+ - cvxopt
