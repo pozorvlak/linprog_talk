@@ -263,19 +263,21 @@ subtitle: High-level
  - [PuLP](http://pythonhosted.org//PuLP/)
  - [pyglpk](http://tfinley.net/software/pyglpk/)
  - [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoOnlineDocs.html)
+ - [or-tools](https://developers.google.com/optimization/)
+ - [optlang](https://pypi.python.org/pypi/optlang/0.2.6)
 
 ---
 title: Python LP libraries
 subtitle: Lower-level
 
-Code-wise
----------
-
+ - [ecyglpki](https://pypi.python.org/pypi/ecyglpki/0.2.0)
  - swiglpk
  - ctypes-glpk
  - lpsolve55
+ - [pycplex](http://www.cs.toronto.edu/~darius/software/pycplex/)
 
-Maths-wise
-----------
+---
+title: Nonlinear programming libraries
 
- - cvxopt
+ - [cvxopt](http://cvxopt.org/)
+ - [tango](https://pypi.python.org/pypi/TANGO-Project---ALGENCAN/1.0)
