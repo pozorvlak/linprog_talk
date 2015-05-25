@@ -3,7 +3,6 @@
 % author: Miles Gould
 % author: Hogarth Worldwide
 % thankyou: Thanks everyone!
-% thankyou_details: And especially these people:
 % contact: <span>www</span> <a href="http://pozorvlak.dreamwidth.org/">website</a>
 % contact: <span>github</span> <a href="http://github.com/pozorvlak">pozorvlak</a>
 % favicon: http://www.stanford.edu/favicon.ico
@@ -328,3 +327,9 @@ title: Nonlinear programming libraries
  - [tango](https://pypi.python.org/pypi/TANGO-Project---ALGENCAN/1.0)
  - [optlang](https://pypi.python.org/pypi/optlang/0.2.6)
  - [PyLMI](https://pypi.python.org/pypi/PyLMI-SDP/0.2)
+
+---
+title: Further study
+
+- https://www.coursera.org/course/linearprogramming
+- http://en.wikipedia.org/wiki/Linear_programming
