@@ -1,0 +1,676 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Linear optimization in Python</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" http://www.stanford.edu/favicon.ico"/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Linear optimization in Python</h1>
+    <h2> or, search absurdly large spaces using this one weird trick</h2>
+    <p> Miles Gould<br/> Hogarth Worldwide</p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Objectives</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>What is linear programming?</li>
+<li>When is it useful?</li>
+<li>How can I use it?</li>
+<li>How does it work?</li>
+<li>How efficient is it?</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Optimization</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>"Find the values of a, b, c... such that f(a, b, c, ...) is as big as possible, subject to constraints on a, b, c..."</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Huh?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Let's try an example!</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Optimal farming</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>I have 100ha of fields and 400 bags of fertilizer</li>
+<li>I can plant rice or barley</li>
+<li>1ha of barley sells for €300, uses 5 bags</li>
+<li>1ha of rice sells for €250, uses 3 bags</li>
+<li>how can I maximize my profit?</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Optimal farming</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><blockquote>
+<p>“Mathematicians are like Frenchmen: whatever you say to them they translate into their own language and forthwith it is something entirely different.”</p>
+<p>― Johann Wolfgang von Goethe</p>
+</blockquote></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Optimal farming</h2>
+      <h3>Now with ADDED MATHS!</h3>
+    </hgroup>
+    <article ><ul>
+<li>Maximize <code>300 * barley + 250 * rice</code></li>
+<li><code>barley + rice &lt;= 100</code></li>
+<li><code>5 * barley + 3 * rice &lt;= 400</code></li>
+<li>This is <strong>linear</strong></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Linear programs</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Given variables <mathjax>$X_0, X_1, \ldots, X_n$</mathjax></li>
+<li>Minimize (or maximize!) <mathjax>$c_0 X_0 + c_1 X_1 + \ldots + c_n X_n$</mathjax></li>
+<li>Subject to constraints
+<mathjax>$$
+a_{00} X_0 + \ldots + a_{0n} X_n &lt;= b_0 \\
+\vdots \\
+a_{m0} X_0 + \ldots + a_{mn} X_n &lt;= b_m \\
+$$</mathjax></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Let's write some code!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+from pulp import *
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Let's write some code!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+from pulp import *
+
+<b>prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)</b>
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Let's write some code!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+from pulp import *
+
+prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)
+
+<b>prob += 300 * barley + 250 * rice, "money for selling grain"
+prob += barley + rice &lt;= 100, "total size of fields"
+prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"</b>
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Let's write some code!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+from pulp import *
+
+prob = LpProblem("Farmer", LpMaximize)
+
+barley = LpVariable("barley", 0, None)
+rice = LpVariable("rice", 0, None)
+
+prob += 300 * barley + 250 * rice, "money for selling grain"
+prob += barley + rice &lt;= 100, "total size of fields"
+prob += 5 * barley + 3 * rice &lt;= 400, "available fertilizer"
+
+<b>prob.solve()</b>
+
+print("Status:", LpStatus[prob.status])
+for v in prob.variables():
+    print(v.name, "=", v.varValue)
+print("Total income = ", value(prob.objective))
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Live demo!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>More examples!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Transport problem<br />
+<img src=figures/transport_problem.svg height=200 /></li>
+<li><a href="https://developers.google.com/optimization/lp/glop">Diet problem</a></li>
+<li>Fitting curves to data</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Interlude</h2>
+      <h3>How does it work?</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The simplex algorithm</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/farmer1.svg height=500 /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The simplex algorithm</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/farmer2.svg height=500 /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The simplex algorithm</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/farmer3.svg height=500 /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The simplex algorithm</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/farmer4.svg height=500 /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>The simplex algorithm</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/farmer5.svg height=500 /></p></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Integer linear programming</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Election fever</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>We just had an election</li>
+<li>[Let's pretend we have PR...]</li>
+<li>CON expect 239.38 seats</li>
+<li>er...</li>
+<li>Can we use LPs?</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Election fever</h2>
+      <h3>LPs to the rescue!</h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, <b>LpInteger</b>)
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Election fever</h2>
+      <h3>Handling absolute values</h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
+    <b>bound = LpVariable("{}_bound".format(party), 0, 1)</b>
+    diff = seats - expected[party]
+    <b>prob += diff <= bound
+    prob += -diff <= bound</b>
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Election fever</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="python">
+for party in parties:
+    seats = LpVariable("{}_seats".format(party), 0, 650, LpInteger)
+    bound = LpVariable("{}_bound".format(party), 0, 1)
+    diff = seats - expected[party]
+    prob += diff <= bound
+    prob += -diff <= bound
+    bounds.append(bound)
+    seat_vars[party] = seats
+
+<b>prob += lpSum(seat_vars.values()) == 650
+prob += lpSum(bounds)</b>
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Election fever</h2>
+      <h3>Live demo!</h3>
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chip layouts</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><img src=figures/chip_layout.png height=500 /></p>
+<footer class="source">Hiroyuki Watanabe, <i>IC Layout Generation and Compaction Using Mathematical Optimization</i></footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Chip layouts</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Trick: introduce a <strong>decision variable</strong> d</li>
+<li>d = 0 if separation is horizontal, 1 if vertical
+<pre class="prettyprint" data-lang="python">
+h_sep &gt;= min_sep * (1 - d)
+v_sep &gt;= min_sep * d
+</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Boolean formulae</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Take a long boolean formula, say
+<pre>a and (b or (c and d)) and (e and f)</pre></li>
+<li>Can we find <code>a, b, c, d, e, f</code> to make it true?</li>
+<li>First, convert to conjunctive normal form:
+<pre>a and (b or c) and (b or d) and e and f</pre></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Boolean formulae</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre>a and (b or c) and (b or d) and e and f</pre>
+
+<ul>
+<li>One integer variable per input (0 = false, 1 = true)</li>
+<li>One constraint per disjunction:
+<mathjax>$$
+a &gt;= 1 \\
+b + c &gt;= 1 \\
+b + d &gt;= 1 \\
+e &gt;= 1 \\
+f &gt;= 1$$</mathjax></li>
+<li>Any objective we like</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Oh dear</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>We've just sketched out a SAT solver.</p></article>
+ 
+</slide>
+
+<slide class="img-top-center" >
+  
+    <hgroup>
+      <h2>NP-completeness</h2>
+      <h3>I used to be like</h3>
+    </hgroup>
+    <article ><p><img src=figures/game_over_man.jpg /></p></article>
+ 
+</slide>
+
+<slide class="img-top-center" >
+  
+    <hgroup>
+      <h2>NP-completeness</h2>
+      <h3>But now I'm like</h3>
+    </hgroup>
+    <article ><p><img src=figures/morpheus.gif /></p></article>
+ 
+</slide>
+
+<slide class="img-top-center" >
+  
+    <hgroup>
+      <h2>NP-completeness</h2>
+      <h3>Because I learned this</h3>
+    </hgroup>
+    <article ><p><img src=figures/compilers.png /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>A performance investigation</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Find <mathjax>$k$</mathjax> numbers from <mathjax>$1, \ldots, n$</mathjax> such that</p>
+<ul>
+<li>none divides any other</li>
+<li>their sum is as small as possible</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Live demo!</h2>
+      <h3></h3>
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Here's one I prepared earlier</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="shell">
+(linprog_pypy3)miles@ended:~/src/linprog_talk/k_from_n 22:53  master 
+0 $ time ./recursive.py 100 200
+^CTraceback (most recent call last):
+  File "./recursive.py", line 16, in <module>
+    answer = best(int(sys.argv[1]), range(1, int(sys.argv[2]) + 1))
+  File "./recursive.py", line 14, in best
+    return best(k, tail)
+<i>Many lines of stack trace...</i>
+  File "./recursive.py", line 11, in <listcomp>
+    with_head = best(k - 1, [o for o in tail if o % head != 0])
+KeyboardInterrupt
+
+real    8188m52.074s
+user    8023m13.082s
+sys     0m15.560s
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Takeaways</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Linear programs are everywhere</li>
+<li>LP solvers are easy to use</li>
+<li>Often much more efficient than hand-rolled code</li>
+<li>NP-completeness != game over</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Python LP libraries</h2>
+      <h3>High-level</h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="http://pythonhosted.org//PuLP/">PuLP</a></li>
+<li><a href="https://software.sandia.gov/downloads/pub/pyomo/PyomoOnlineDocs.html">Pyomo</a></li>
+<li><a href="https://developers.google.com/optimization/">or-tools</a></li>
+<li><a href="https://pypi.python.org/pypi/optlang/0.2.6">optlang</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Python LP libraries</h2>
+      <h3>Lower-level</h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="https://pypi.python.org/pypi/ecyglpki/0.2.0">ecyglpki</a></li>
+<li><a href="https://pypi.python.org/pypi/swiglpk">swiglpk</a></li>
+<li><a href="https://code.google.com/p/ctypes-glpk/">ctypes-glpk</a></li>
+<li><a href="http://lpsolve.sourceforge.net/5.5/Python.htm#Install_the_lpsolve_driver">lpsolve55</a></li>
+<li><a href="http://www.cs.toronto.edu/~darius/software/pycplex/">pycplex</a></li>
+<li><a href="https://pypi.python.org/pypi/cylp/0.7.3-">cylp</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Nonlinear programming libraries</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="http://cvxopt.org/">cvxopt</a></li>
+<li><a href="https://pypi.python.org/pypi/TANGO-Project---ALGENCAN/1.0">tango</a></li>
+<li><a href="https://pypi.python.org/pypi/optlang/0.2.6">optlang</a></li>
+<li><a href="https://pypi.python.org/pypi/PyLMI-SDP/0.2">PyLMI</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Further study</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>https://www.coursera.org/course/linearprogramming</li>
+<li>http://en.wikipedia.org/wiki/Linear_programming</li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Thanks everyone!</h2>
+    <p></p>
+  </article>
+  <p data-config-contact class="auto-fadein"> <span>blog</span> <a href="http://pozorvlak.dreamwidth.org/">Beware of the Train</a><br/> <span>github</span> <a href="http://github.com/pozorvlak">pozorvlak</a><br/> <span>twitter</span> <a href="http://twitter.com/pozorvlak">pozorvlak</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
