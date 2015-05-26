@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from pulp import *
 
 prob = LpProblem("Farmer", LpMaximize)
