@@ -303,6 +303,15 @@ sys     0m15.560s
 </pre>
 
 ---
+title: Takeaways
+build_lists: true
+
+- Linear programs are everywhere
+- LP solvers are easy to use
+- Often much more efficient than hand-rolled code
+- NP-completeness != game over
+
+---
 title: Python LP libraries
 subtitle: High-level
 
