@@ -316,7 +316,6 @@ title: Python LP libraries
 subtitle: High-level
 
  - [PuLP](http://pythonhosted.org//PuLP/)
- - [pyglpk](http://tfinley.net/software/pyglpk/)
  - [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoOnlineDocs.html)
  - [or-tools](https://developers.google.com/optimization/)
  - [optlang](https://pypi.python.org/pypi/optlang/0.2.6)
