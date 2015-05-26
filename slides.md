@@ -361,6 +361,7 @@ title: Nonlinear programming libraries
  - [tango](https://pypi.python.org/pypi/TANGO-Project---ALGENCAN/1.0)
  - [optlang](https://pypi.python.org/pypi/optlang/0.2.6)
  - [PyLMI](https://pypi.python.org/pypi/PyLMI-SDP/0.2)
+ - [scipy.optimize](http://docs.scipy.org/doc/scipy/reference/optimize.html)
 
 ---
 title: Further study
