@@ -279,6 +279,9 @@ Find $k$ numbers from $1, \ldots, n$ such that
  - their sum is as small as possible
 
 ---
+title: Live demo!
+
+---
 title: Here's one I prepared earlier
 
 <pre class="prettyprint" data-lang="shell">
