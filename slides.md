@@ -3,8 +3,9 @@
 % author: Miles Gould
 % author: Hogarth Worldwide
 % thankyou: Thanks everyone!
-% contact: <span>blog</span> <a href="http://pozorvlak.dreamwidth.org/">website</a>
+% contact: <span>blog</span> <a href="http://pozorvlak.dreamwidth.org/">Beware of the Train</a>
 % contact: <span>github</span> <a href="http://github.com/pozorvlak">pozorvlak</a>
+% contact: <span>twitter</span> <a href="http://twitter.com/pozorvlak">pozorvlak</a>
 % favicon: http://www.stanford.edu/favicon.ico
 
 ---
