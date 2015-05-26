@@ -132,7 +132,8 @@ title: Live demo!
 title: More examples!
 build_lists: true
 
-- Transport problem
+- Transport problem  
+<img src=figures/transport_problem.svg height=200 />
 - [Diet problem](https://developers.google.com/optimization/lp/glop)
 - Fitting curves to data
 
