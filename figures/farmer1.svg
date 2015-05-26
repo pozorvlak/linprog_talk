@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="22cm" height="21cm" viewBox="199 179 422 402" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="200" y="180" width="420" height="400"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ffffff" x="200" y="180" width="420" height="400"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="300" y1="500" x2="299.032" y2="209.736"/>
+    <polygon style="fill: #000000" points="299.007,202.236 304.041,212.219 299.032,209.736 294.041,212.253 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="299.007,202.236 304.041,212.219 299.032,209.736 294.041,212.253 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="280" y1="480" x2="590.264" y2="480"/>
+    <polygon style="fill: #000000" points="597.764,480 587.764,485 590.264,480 587.764,475 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="597.764,480 587.764,485 590.264,480 587.764,475 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="255.406" y="217.214">
+    <tspan x="255.406" y="217.214">Rice</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="557.45" y="504.764">
+    <tspan x="557.45" y="504.764">Barley</tspan>
+  </text>
+</svg>

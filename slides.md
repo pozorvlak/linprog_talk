@@ -143,7 +143,27 @@ class: segue dark nobackground
 ---
 title: The simplex algorithm
 
-XXX diagram here
+<img src=figures/farmer1.svg height=500 />
+
+---
+title: The simplex algorithm
+
+<img src=figures/farmer2.svg height=500 />
+
+---
+title: The simplex algorithm
+
+<img src=figures/farmer3.svg height=500 />
+
+---
+title: The simplex algorithm
+
+<img src=figures/farmer4.svg height=500 />
+
+---
+title: The simplex algorithm
+
+<img src=figures/farmer5.svg height=500 />
 
 ---
 title: Integer linear programming
