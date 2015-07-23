@@ -12,7 +12,6 @@ build_lists: true
 - What is linear programming?
 - When is it useful?
 - How can I use it?
-- How does it work?
 - How efficient is it?
 
 ---
