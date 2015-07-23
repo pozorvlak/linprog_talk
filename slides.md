@@ -273,6 +273,19 @@ sys     0m15.560s
 </pre>
 
 ---
+title: Here's one I prepared earlier
+
+<pre class="prettyprint" data-lang="shell">
+0 $ time ./k_from_n.py 2500 5000
+Status: Optimal
+Sum =  7142693.0
+
+real    1m16.737s
+user    1m16.523s
+sys     0m0.213s
+</pre>
+
+---
 title: Takeaways
 build_lists: true
 
