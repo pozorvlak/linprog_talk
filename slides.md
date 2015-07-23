@@ -122,7 +122,16 @@ print("Total income = ", value(prob.objective))
 </pre>
 
 ---
-title: Live demo!
+title: Here's one I prepared earlier
+
+<pre class="prettyprint" data-lang="shell">
+(linprog_talk)miles@ended:~/src/linprog_talk 16:50  cut_down 
+0 $ ./farmer.py 
+Status: Optimal
+barley = 50.0
+rice = 50.0
+Total income =  27500.0
+</pre>
 
 ---
 title: More examples!
