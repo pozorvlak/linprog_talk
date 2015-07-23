@@ -134,7 +134,7 @@ build_lists: true
 - [Diet problem](https://developers.google.com/optimization/lp/glop)
 - Fitting curves to data
 
---
+---
 title: Integer linear programming
 class: segue dark nobackground
 
