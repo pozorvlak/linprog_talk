@@ -191,6 +191,13 @@ title: Election fever
 subtitle: Live demo!
 
 ---
+title: More examples
+
+- Scheduling nurses' shifts
+- Microchip layout
+- Picking sports teams
+
+---
 title: Boolean formulae
 build_lists: true
 
