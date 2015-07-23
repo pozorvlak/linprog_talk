@@ -3,7 +3,6 @@
 % author: Miles Gould
 % author: Hogarth Worldwide
 % thankyou: Thanks everyone!
-% contact: <a href="http://www.againstmalaria.com/MilesGould">marathon</a>
 % contact: <a href="http://pozorvlak.dreamwidth.org/">blog</a>
 % contact: <a href="http://github.com/pozorvlak">github</a>
 % contact: <a href="http://twitter.com/pozorvlak">twitter</a>
@@ -133,42 +132,12 @@ title: Live demo!
 title: More examples!
 build_lists: true
 
-- Transport problem  
+- Transport problem
 <img src=figures/transport_problem.svg height=200 />
 - [Diet problem](https://developers.google.com/optimization/lp/glop)
 - Fitting curves to data
 
----
-title: Interlude
-subtitle: How does it work?
-class: segue dark nobackground
-
----
-title: The simplex algorithm
-
-<img src=figures/farmer1.svg height=500 />
-
----
-title: The simplex algorithm
-
-<img src=figures/farmer2.svg height=500 />
-
----
-title: The simplex algorithm
-
-<img src=figures/farmer3.svg height=500 />
-
----
-title: The simplex algorithm
-
-<img src=figures/farmer4.svg height=500 />
-
----
-title: The simplex algorithm
-
-<img src=figures/farmer5.svg height=500 />
-
----
+--
 title: Integer linear programming
 class: segue dark nobackground
 
@@ -226,24 +195,6 @@ title: Election fever
 subtitle: Live demo!
 
 ---
-title: Chip layouts
-
-<img src=figures/chip_layout.png height=500 />
-
-<footer class="source">Hiroyuki Watanabe, <i>IC Layout Generation and Compaction Using Mathematical Optimization</i></footer>
-
----
-title: Chip layouts
-build_lists: true
-
-- Trick: introduce a **decision variable** d
-- d = 0 if separation is horizontal, 1 if vertical
-<pre class="prettyprint" data-lang="python">
-h_sep >= min_sep * (1 - d)
-v_sep >= min_sep * d
-</pre>
-
----
 title: Boolean formulae
 build_lists: true
 
@@ -285,13 +236,6 @@ subtitle: But now I'm like
 class: img-top-center
 
 <img src=figures/morpheus.gif />
-
----
-title: NP-completeness
-subtitle: Because I learned this
-class: img-top-center
-
-<img src=figures/compilers.png />
 
 ---
 title: A performance investigation
