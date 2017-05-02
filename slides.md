@@ -1,9 +1,8 @@
 % title: Linear optimization in Python
 % subtitle: or, search absurdly large spaces using this one weird trick
 % author: Miles Gould
-% author: Hogarth Worldwide
+% author: ZoneFox
 % thankyou: Thanks everyone!
-% contact: <a href="http://www.againstmalaria.com/MilesGould">marathon</a>
 % contact: <a href="http://pozorvlak.dreamwidth.org/">blog</a>
 % contact: <a href="http://github.com/pozorvlak">github</a>
 % contact: <a href="http://twitter.com/pozorvlak">twitter</a>
@@ -176,7 +175,7 @@ class: segue dark nobackground
 title: Election fever
 build_lists: true
 
-- We just had an election
+- We're about to have an election
 - [Let's pretend we have PR...]
 - CON expect 239.38 seats
 - er...
